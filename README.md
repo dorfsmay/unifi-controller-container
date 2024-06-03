@@ -1,11 +1,13 @@
 # Docker files for the UniFi controller
 
-This was built and tested with the "Unifi Network Server" version 8.1.127 and Debian Bookworm.
+This was built and tested with the "Unifi Network Server" version 8.1.127 and Debian Bookworm.  
 It was tested with podman but should work with docker.
+
+### Other container solutions
+As pointed out by [/u/brwainer](https://old.reddit.com/user/brwainer) in [this reddit thread](https://old.reddit.com/r/Ubiquiti/comments/1d6xaac/another_dockerization_of_the_unifi_controller/), LinuxServer io maintains a [UniFi Network Docker file](https://hub.docker.com/r/linuxserver/unifi-network-application). It does not include the required MongoDB, which can be added as part of a compose file, but you then have to maintain that file, on the other hand it is maintained and updated regularly while mine will be updated sporadically.
 
 ### Network Mode
 Given that the software needs access to a mix of UDP and TCP ports ([UniFi Required Ports Reference](https://help.ui.com/hc/en-us/articles/218506997-UniFi-Network-Required-Ports-Reference)), and that the idea here is emulating running it locally but easily portable from one laptop to another, it was easier to set it up with `network_mode: "host"`
-
 
 ### Usage
 - download the dot deb file from https://ui.com/download
